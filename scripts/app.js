@@ -10,7 +10,7 @@
     const cityDets = data.cityDets; // or const {cityDets, weather} =  data
     const weather = data. weather;
 
-    if (data.weather.IsDayTime)
+    
 
     //update details template
     details.innerHTML = `
@@ -21,6 +21,14 @@
       <span>&deg;C</span>
     </div>
     `
+
+    //update night/day & icon images
+    const iconSrc = `img/icons/${weather.WeatherIcon}.svg`
+    icon.setAttribute('src', iconSrc)
+
+    let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg'
+    time.setAttribute('src', timeSrc)
+
     //remove the d-none class if present
     if (card.classList.contains('d-none')) {
         card.classList.remove('d-none')
